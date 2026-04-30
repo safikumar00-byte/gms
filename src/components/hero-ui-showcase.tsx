@@ -1,7 +1,7 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { Image } from 'expo-image';
 import React, { useDeferredValue, useMemo, useState } from 'react';
-import { ScrollView, View, Text } from 'react-native';
+import { Pressable, ScrollView, View, Text } from 'react-native';
 
 import {
   Accordion,
@@ -93,9 +93,13 @@ function TextLink({
   onPress?: () => void;
 }) {
   return (
-    <Text className="text-sm font-medium text-accent underline" onPress={onPress}>
-      {children}
-    </Text>
+    <Pressable
+      accessibilityRole="button"
+      onPress={onPress}
+      style={({ pressed }) => [{ opacity: pressed ? 0.8 : 1 }]}
+    >
+      <Text className="text-sm font-medium text-accent underline">{children}</Text>
+    </Pressable>
   );
 }
 
@@ -103,7 +107,6 @@ export default function HeroUIShowcase() {
   const { toast } = useToast();
 
   const [activeTab, setActiveTab] = useState<ShowcaseTab>('overview');
-  const [name, setName] = useState('Sunil');
   const [email, setEmail] = useState('sunil@example.com');
   const [password, setPassword] = useState('');
   const [notes, setNotes] = useState('');
@@ -161,7 +164,7 @@ export default function HeroUIShowcase() {
               <Text className="text-3xl font-semibold tracking-tight text-foreground">
                 Component rollout across the project
               </Text>
-              <Text className="text-base leading-6 text-muted">
+              <Text className="max-w-3xl text-base leading-7 text-muted">
                 This screen now acts as a living HeroUI reference for buttons, forms,
                 navigation patterns, overlays, and feedback states inside your Expo app.
               </Text>
@@ -203,6 +206,7 @@ export default function HeroUIShowcase() {
                 isIconOnly
                 size="sm"
                 variant="tertiary"
+                accessibilityLabel="Dismiss all toasts"
                 onPress={() => toast.hide('all')}
               >
                 <Button.Label>×</Button.Label>
@@ -249,7 +253,7 @@ export default function HeroUIShowcase() {
                 <View className="flex-row flex-wrap gap-3">
                   <Button>Primary</Button>
                   <Button variant="secondary">Secondary</Button>
-                  <Button variant="outline">Outline</Button>
+                  <Button variant="tertiary">Tertiary</Button>
                   <Button variant="danger">Danger</Button>
                 </View>
                 <View className="flex-row flex-wrap items-center gap-4">
@@ -260,6 +264,7 @@ export default function HeroUIShowcase() {
                     isIconOnly
                     size="sm"
                     variant="tertiary"
+                    accessibilityLabel="Dismiss all toasts"
                     onPress={() => toast.hide('all')}
                   >
                     <Button.Label>×</Button.Label>
@@ -792,7 +797,7 @@ export default function HeroUIShowcase() {
                     </Dialog.Description>
                   </View>
                   <View className="flex-row justify-end gap-3">
-                    <Button variant="ghost" size="sm" onPress={() => setIsDialogOpen(false)}>
+                    <Button variant="tertiary" size="sm" onPress={() => setIsDialogOpen(false)}>
                       Cancel
                     </Button>
                     <Button
@@ -837,7 +842,7 @@ export default function HeroUIShowcase() {
 
             <BottomSheet isOpen={isSheetOpen} onOpenChange={setIsSheetOpen}>
               <BottomSheet.Trigger asChild>
-                <Button variant="outline" onPress={() => setIsSheetOpen(true)}>
+                <Button variant="secondary" onPress={() => setIsSheetOpen(true)}>
                   Open bottom sheet
                 </Button>
               </BottomSheet.Trigger>

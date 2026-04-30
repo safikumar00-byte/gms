@@ -1,9 +1,9 @@
-import { ScrollView, Text } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { ScrollView, Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-import { Chip, Surface } from 'heroui-native';
+import { Chip, Surface } from "heroui-native";
 
-import HeroUIShowcase from '@/components/hero-ui-showcase';
+import HeroUIShowcase from "@/components/hero-ui-showcase";
 
 export default function ExploreScreen() {
   return (
@@ -17,8 +17,9 @@ export default function ExploreScreen() {
             Full HeroUI component gallery
           </Text>
           <Text className="text-base leading-6 text-muted">
-            This tab is the step-by-step implementation surface for HeroUI in the project.
-            It covers layout, forms, collection patterns, overlays, utilities, and feedback.
+            This tab is the step-by-step implementation surface for HeroUI in the
+            project. It covers layout, forms, collection patterns, overlays,
+            utilities, and feedback.
           </Text>
         </Surface>
 

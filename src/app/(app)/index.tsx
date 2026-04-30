@@ -1,9 +1,9 @@
-import { ScrollView, Text, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { ScrollView, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-import { Button, Card, Chip, Separator, Surface } from 'heroui-native';
+import { Button, Card, Chip, Separator, Surface } from "heroui-native";
 
-import HeroUIShowcase from '@/components/hero-ui-showcase';
+import HeroUIShowcase from "@/components/hero-ui-showcase";
 
 export default function HomeScreen() {
   return (
@@ -25,9 +25,9 @@ export default function HomeScreen() {
                 Native UI system installed and implemented in-app
               </Text>
               <Text className="max-w-3xl text-base leading-7 text-muted">
-                The Expo starter has been replaced with a working HeroUI Native home experience.
-                The second tab now contains an interactive gallery for the component families
-                you asked to implement across the project.
+                The Expo starter has been replaced with a working HeroUI Native home
+                experience. The second tab now contains an interactive gallery for
+                the component families you asked to implement across the project.
               </Text>
             </View>
           </View>
@@ -37,7 +37,8 @@ export default function HomeScreen() {
               <Card.Body className="gap-2">
                 <Card.Title>What changed</Card.Title>
                 <Card.Description>
-                  Provider setup, Uniwind styling, Metro configuration, and a full HeroUI gallery are now part of the app.
+                  Provider setup, Uniwind styling, Metro configuration, and a full
+                  HeroUI gallery are now part of the app.
                 </Card.Description>
               </Card.Body>
             </Card>
@@ -46,7 +47,8 @@ export default function HomeScreen() {
               <Card.Body className="gap-2">
                 <Card.Title>Where to continue</Card.Title>
                 <Card.Description>
-                  Use the Explore tab as a reference when you build real product screens from these patterns.
+                  Use the Explore tab as a reference when you build real product
+                  screens from these patterns.
                 </Card.Description>
               </Card.Body>
             </Card>
