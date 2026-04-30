@@ -1,0 +1,130 @@
+https://pmwoxsnpnvdadrgmrxts.supabase.co/auth/v1/signup
+Request Method
+POST
+Status Code
+200 OK
+
+{
+    "email": "lucha@gmail.com",
+    "password": "lucha@gmail.com",
+    "data": {},
+    "gotrue_meta_security": {},
+    "code_challenge": null,
+    "code_challenge_method": null
+}
+
+{
+    "access_token": "eyJhbGciOiJFUzI1NiIsImtpZCI6ImU5MGM5NWI2LWFhMjMtNGI1Yi04YTQ2LTA1YmE3NjhkMzEzYiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3Btd294c25wbnZkYWRyZ21yeHRzLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiIzNTE4ZTlhYy01ZWNhLTRiY2EtYmE0Ny0zNmE2ZWU2NWMzYTciLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzc3NTMxOTM2LCJpYXQiOjE3Nzc1MjgzMzYsImVtYWlsIjoibHVjaGFAZ21haWwuY29tIiwicGhvbmUiOiIiLCJhcHBfbWV0YWRhdGEiOnsicHJvdmlkZXIiOiJlbWFpbCIsInByb3ZpZGVycyI6WyJlbWFpbCJdfSwidXNlcl9tZXRhZGF0YSI6eyJlbWFpbCI6Imx1Y2hhQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInN1YiI6IjM1MThlOWFjLTVlY2EtNGJjYS1iYTQ3LTM2YTZlZTY1YzNhNyJ9LCJyb2xlIjoiYXV0aGVudGljYXRlZCIsImFhbCI6ImFhbDEiLCJhbXIiOlt7Im1ldGhvZCI6InBhc3N3b3JkIiwidGltZXN0YW1wIjoxNzc3NTI4MzM2fV0sInNlc3Npb25faWQiOiJiYzYwZTk2NC02OTE3LTQwNWEtODUzMC02YmQ3M2RiYTgzMDciLCJpc19hbm9ueW1vdXMiOmZhbHNlfQ.yU6lmIybZ44GLUjB8n_xf_MkdxvdWFuagxgnSfOcepahdMuaV_IvehdVhRbL77S2c1HBwJeca6JY_xhN3kdt1A",
+    "token_type": "bearer",
+    "expires_in": 3600,
+    "expires_at": 1777531936,
+    "refresh_token": "kvfh3sgc3zs6",
+    "user": {
+        "id": "3518e9ac-5eca-4bca-ba47-36a6ee65c3a7",
+        "aud": "authenticated",
+        "role": "authenticated",
+        "email": "lucha@gmail.com",
+        "email_confirmed_at": "2026-04-30T05:52:16.070198678Z",
+        "phone": "",
+        "last_sign_in_at": "2026-04-30T05:52:16.077533427Z",
+        "app_metadata": {
+            "provider": "email",
+            "providers": [
+                "email"
+            ]
+        },
+        "user_metadata": {
+            "email": "lucha@gmail.com",
+            "email_verified": true,
+            "phone_verified": false,
+            "sub": "3518e9ac-5eca-4bca-ba47-36a6ee65c3a7"
+        },
+        "identities": [
+            {
+                "identity_id": "71446077-256f-4c7a-82a4-d72f1cd4b63f",
+                "id": "3518e9ac-5eca-4bca-ba47-36a6ee65c3a7",
+                "user_id": "3518e9ac-5eca-4bca-ba47-36a6ee65c3a7",
+                "identity_data": {
+                    "email": "lucha@gmail.com",
+                    "email_verified": true,
+                    "phone_verified": false,
+                    "sub": "3518e9ac-5eca-4bca-ba47-36a6ee65c3a7"
+                },
+                "provider": "email",
+                "last_sign_in_at": "2026-04-30T05:52:16.064289431Z",
+                "created_at": "2026-04-30T05:52:16.064361Z",
+                "updated_at": "2026-04-30T05:52:16.064361Z",
+                "email": "lucha@gmail.com"
+            }
+        ],
+        "created_at": "2026-04-30T05:52:16.032464Z",
+        "updated_at": "2026-04-30T05:52:16.086582Z",
+        "is_anonymous": false
+    }
+}
+
+
+https://pmwoxsnpnvdadrgmrxts.supabase.co/auth/v1/token?grant_type=password
+Request Method
+POST
+Status Code
+200 OK
+
+{
+    "email": "lucha@gmail.com",
+    "password": "lucha@gmail.com",
+    "gotrue_meta_security": {}
+}
+
+
+{
+    "access_token": "eyJhbGciOiJFUzI1NiIsImtpZCI6ImU5MGM5NWI2LWFhMjMtNGI1Yi04YTQ2LTA1YmE3NjhkMzEzYiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3Btd294c25wbnZkYWRyZ21yeHRzLnN1cGFiYXNlLmNvL2F1dGgvdjEiLCJzdWIiOiIzNTE4ZTlhYy01ZWNhLTRiY2EtYmE0Ny0zNmE2ZWU2NWMzYTciLCJhdWQiOiJhdXRoZW50aWNhdGVkIiwiZXhwIjoxNzc3NTMyMDc1LCJpYXQiOjE3Nzc1Mjg0NzUsImVtYWlsIjoibHVjaGFAZ21haWwuY29tIiwicGhvbmUiOiIiLCJhcHBfbWV0YWRhdGEiOnsicHJvdmlkZXIiOiJlbWFpbCIsInByb3ZpZGVycyI6WyJlbWFpbCJdfSwidXNlcl9tZXRhZGF0YSI6eyJlbWFpbCI6Imx1Y2hhQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJwaG9uZV92ZXJpZmllZCI6ZmFsc2UsInN1YiI6IjM1MThlOWFjLTVlY2EtNGJjYS1iYTQ3LTM2YTZlZTY1YzNhNyJ9LCJyb2xlIjoiYXV0aGVudGljYXRlZCIsImFhbCI6ImFhbDEiLCJhbXIiOlt7Im1ldGhvZCI6InBhc3N3b3JkIiwidGltZXN0YW1wIjoxNzc3NTI4NDc1fV0sInNlc3Npb25faWQiOiJlN2M1ZTFiZS00NDUzLTRjNjItYmM3My1mZDU2YjcwOGQ2ZjciLCJpc19hbm9ueW1vdXMiOmZhbHNlfQ.qWnhw064It9VddrSZ0zZ_JosBTgw_TxsPQyhj0yvRNK84z24EmFA7WHguAX3vl6-wmfuQq-mFMD_2SL4D1Cndg",
+    "token_type": "bearer",
+    "expires_in": 3600,
+    "expires_at": 1777532075,
+    "refresh_token": "bujjqjcczjj6",
+    "user": {
+        "id": "3518e9ac-5eca-4bca-ba47-36a6ee65c3a7",
+        "aud": "authenticated",
+        "role": "authenticated",
+        "email": "lucha@gmail.com",
+        "email_confirmed_at": "2026-04-30T05:52:16.070198Z",
+        "phone": "",
+        "confirmed_at": "2026-04-30T05:52:16.070198Z",
+        "last_sign_in_at": "2026-04-30T05:54:35.406587706Z",
+        "app_metadata": {
+            "provider": "email",
+            "providers": [
+                "email"
+            ]
+        },
+        "user_metadata": {
+            "email": "lucha@gmail.com",
+            "email_verified": true,
+            "phone_verified": false,
+            "sub": "3518e9ac-5eca-4bca-ba47-36a6ee65c3a7"
+        },
+        "identities": [
+            {
+                "identity_id": "71446077-256f-4c7a-82a4-d72f1cd4b63f",
+                "id": "3518e9ac-5eca-4bca-ba47-36a6ee65c3a7",
+                "user_id": "3518e9ac-5eca-4bca-ba47-36a6ee65c3a7",
+                "identity_data": {
+                    "email": "lucha@gmail.com",
+                    "email_verified": false,
+                    "phone_verified": false,
+                    "sub": "3518e9ac-5eca-4bca-ba47-36a6ee65c3a7"
+                },
+                "provider": "email",
+                "last_sign_in_at": "2026-04-30T05:52:16.064289Z",
+                "created_at": "2026-04-30T05:52:16.064361Z",
+                "updated_at": "2026-04-30T05:52:16.064361Z",
+                "email": "lucha@gmail.com"
+            }
+        ],
+        "created_at": "2026-04-30T05:52:16.032464Z",
+        "updated_at": "2026-04-30T05:54:35.420363Z",
+        "is_anonymous": false
+    },
+    "weak_password": null
+}

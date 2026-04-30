@@ -1,4 +1,4 @@
-import { supabase } from '../lib/supabase';
+import { supabase } from "../lib/supabase";
 
 export const signUp = async (email: string, password: string) => {
   return await supabase.auth.signUp({ email, password });
@@ -17,7 +17,14 @@ export const getSession = async () => {
 };
 
 export const onAuthStateChange = (
-  callback: Parameters<typeof supabase.auth.onAuthStateChange>[0]
+  callback: Parameters<typeof supabase.auth.onAuthStateChange>[0],
 ) => {
   return supabase.auth.onAuthStateChange(callback);
+};
+
+export const updateUserProfile = async (
+  userId: string,
+  role: "owner" | "member",
+) => {
+  return await supabase.from("profiles").update({ role }).eq("id", userId);
 };

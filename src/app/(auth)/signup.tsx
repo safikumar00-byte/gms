@@ -1,24 +1,27 @@
 import { Link, router } from "expo-router";
 import {
-  Alert,
-  Button,
-  Card,
-  Description,
-  FieldError,
-  Input,
-  Label,
-  Surface,
-  TextField,
+    Alert,
+    Button,
+    Card,
+    Description,
+    FieldError,
+    Input,
+    Label,
+    Surface,
+    TextField,
 } from "heroui-native";
 import React, { useMemo, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import { signUp } from "../../../services/authService";
+import { signUp, updateUserProfile } from "../../../services/authService";
 
 export default function SignupScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [selectedRole, setSelectedRole] = useState<"owner" | "member" | null>(
+    null,
+  );
   const [notice, setNotice] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -43,8 +46,17 @@ export default function SignupScreen() {
 
   const handleSubmit = async () => {
     if (!email || !password || emailError || passwordError) {
-      setErrorMessage("Enter a valid email and password to create your account.");
+      setErrorMessage(
+        "Enter a valid email and password to create your account.",
+      );
       setNotice("");
+      return;
+    }
+
+    if (!selectedRole) {
+      setErrorMessage(
+        "Please select your role (Gym Owner or Member) to continue.",
+      );
       return;
     }
 
@@ -60,14 +72,37 @@ export default function SignupScreen() {
       return;
     }
 
+    if (data.user) {
+      // Update user profile with selected role
+      const { error: profileError } = await updateUserProfile(
+        data.user.id,
+        selectedRole,
+      );
+
+      if (profileError) {
+        setErrorMessage(
+          "Account created but failed to set role. Please try again.",
+        );
+        setIsSubmitting(false);
+        return;
+      }
+    }
+
     setIsSubmitting(false);
 
     if (data.session) {
-      router.replace("/");
+      // Redirect based on selected role
+      if (selectedRole === "owner") {
+        router.replace("/onboarding/gym");
+      } else {
+        router.replace("/onboarding/join");
+      }
       return;
     }
 
-    setNotice("Your account was created. Check your email if confirmation is required.");
+    setNotice(
+      "Your account was created. Check your email if confirmation is required.",
+    );
   };
 
   return (
@@ -85,7 +120,8 @@ export default function SignupScreen() {
               Sign up with email
             </Text>
             <Text className="text-base leading-6 text-muted">
-              Create your account first, then we can connect the member module next.
+              Create your account first, then we can connect the member module
+              next.
             </Text>
           </View>
 
@@ -121,7 +157,9 @@ export default function SignupScreen() {
                   autoCapitalize="none"
                   autoComplete="email"
                 />
-                <Description>Use an email you can access right now.</Description>
+                <Description>
+                  Use an email you can access right now.
+                </Description>
                 {emailError ? <FieldError>{emailError}</FieldError> : null}
               </TextField>
 
@@ -135,13 +173,46 @@ export default function SignupScreen() {
                   autoCapitalize="none"
                   autoComplete="new-password"
                 />
-                <Description>Choose a password with at least 6 characters.</Description>
-                {passwordError ? <FieldError>{passwordError}</FieldError> : null}
+                <Description>
+                  Choose a password with at least 6 characters.
+                </Description>
+                {passwordError ? (
+                  <FieldError>{passwordError}</FieldError>
+                ) : null}
               </TextField>
+
+              <View className="gap-3">
+                <Text className="text-sm font-medium text-foreground">
+                  I am a... *
+                </Text>
+                <View className="gap-3 flex-row">
+                  <Button
+                    onPress={() => setSelectedRole("owner")}
+                    variant={selectedRole === "owner" ? "primary" : "outline"}
+                    className="flex-1"
+                    isDisabled={isSubmitting}
+                  >
+                    Gym Owner
+                  </Button>
+                  <Button
+                    onPress={() => setSelectedRole("member")}
+                    variant={selectedRole === "member" ? "primary" : "outline"}
+                    className="flex-1"
+                    isDisabled={isSubmitting}
+                  >
+                    Member
+                  </Button>
+                </View>
+                {!selectedRole && (
+                  <Text className="text-xs text-danger">
+                    Role selection is required
+                  </Text>
+                )}
+              </View>
 
               <Button
                 onPress={handleSubmit}
-                isDisabled={isSubmitting}
+                isDisabled={isSubmitting || !selectedRole}
                 className="mt-2"
               >
                 {isSubmitting ? "Creating account..." : "Create account"}
